@@ -134,9 +134,36 @@ class ProgrammingAssignment1 {
    // Function to implement Quick Sort.
    // Input Arguments - data: array to sort, n: number of elements in array 
    // Output: Sorted array (Ascending Order). 
-   static int[] quickSort(int[] data, int n){
-      //TODO: Your implementation of Quick Sort comes here. 
+   static int[] quickSort(int[] data, int left, int right){
+      if (left < right) {
+         int pivotIndex = partition(data, left, right);
+         
+         quickSort(data, left, pivotIndex - 1);
+         quickSort(data, pivotIndex + 1, right);
+      }
       return data;
+   }
+
+   // Helper function for partitioning the array
+   static int partition(int[] data, int left, int right) {
+      // Use the rightmost element as the pivot
+      int pivot = data[right];
+      int i = left - 1;  // Pointer for greater element
+
+      // Traverse through all elements
+      // and compare each with pivot
+      for (int j = left; j < right; j++) {
+         if (data[j] <= pivot) {
+               i++;
+               // Swap data[i] and data[j]
+               data[i] = swapHelper(data[j], data[j] = data[i]);
+         }
+      }
+
+      // Swap the pivot element with the element at i+1
+      data[i + 1] = swapHelper(data[right], data[right] = data[i + 1]);
+
+      return i + 1;  // Return the pivot index
    }
    
    // Function to implement Insertion Sort.
@@ -213,7 +240,7 @@ class ProgrammingAssignment1 {
          case "q":
                   for(int i=0; i<3; i++){
                      startTime = System.nanoTime(); 
-                     output = quickSort(data, n);
+                     output = quickSort(data, 0, n - 1);  // Call with start (0) and end (n-1)
                      endTime = System.nanoTime();
                      totalTime[i] = endTime - startTime;
                      success = isSorted(output, n);

@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from collections import deque
 
 def bfs(graph, start, target):
@@ -73,18 +74,25 @@ def main():
             return
 
     #-| Validate Nodes and Execute alg ---------------------------------------|
-    match alg:
-        case "bfs":
-            result = bfs(graph, src, tgt)
-        case "dfs":
-            result = dfs(graph, src, tgt)
-        case _:
-            print("Error: Invalid algorithm choice. Please choose BFS or DFS.")
-            return
+    result = None
+    elapsed_time_ms = 0
+
+    if alg == "bfs":
+        start_time = time.perf_counter()  # High-resolution timer
+        result = bfs(graph, src, tgt)
+        elapsed_time_ms = (time.perf_counter() - start_time) * 1000  # Convert to milliseconds
+    elif alg == "dfs":
+        start_time = time.perf_counter()  # High-resolution timer
+        result = dfs(graph, src, tgt)
+        elapsed_time_ms = (time.perf_counter() - start_time) * 1000  # Convert to milliseconds
+    else:
+        print("Error: Invalid algorithm choice. Please choose BFS or DFS.")
+        return
 
     #-| Display Result ------------------------------------------------------------|
-    if result:
+    if result != -1:
         print(f"A path exists between {src} and {tgt} using {alg.upper()}.")
+        print(f"Time taken: {elapsed_time_ms:.4f} ms.")
     else:
         print(f"No path exists between {src} and {tgt} using {alg.upper()}.")
 

@@ -3,35 +3,54 @@ import sys
 import time
 from collections import deque
 
+# TODO: 
+# Because they're so similar, combine bfs and dfs methods, with a new, fourth paremeter to 
+# create distinction. This fourth parameter would control whether you use a stack (LIFO) or a 
+# queue (FIFO). That's not part of the assignment though so I'm not doing it rn. 
+
 def bfs(graph, start, target):
     visited = set()
     queue = [(start, 0)]  
+    parent = {start: None}  
 
     while queue:
-        node, distance = queue.pop(0) 
+        node, distance = queue.pop(0)  # Dequeue - FIFO
         if node == target:
-            return distance
+            path = []
+            while node:
+                path.append(node)
+                node = parent[node]
+            return distance, path[::-1] # Reverse the path to get start to target
         if node not in visited:
             visited.add(node)
             for neighbor in graph[node]:
-                queue.append((neighbor, distance + 1)) 
+                if neighbor not in visited and neighbor not in parent:
+                    parent[neighbor] = node
+                    queue.append((neighbor, distance + 1))  # Enqueue
 
-    return -1  # If no path found
+    return -1, []  # If no path found
 
 def dfs(graph, start, target):
     visited = set()
     stack = [(start, 0)] 
+    parent = {start: None}  
 
     while stack:
-        node, distance = stack.pop() 
+        node, distance = stack.pop()  # Dequeue - LIFO
         if node == target:
-            return distance
+            path = []
+            while node:
+                path.append(node)
+                node = parent[node]
+            return distance, path[::-1]  # Reverse the path to get start to target
         if node not in visited:
             visited.add(node)
             for neighbor in graph[node]:
-                stack.append((neighbor, distance + 1)) 
+                if neighbor not in visited and neighbor not in parent:
+                    parent[neighbor] = node 
+                    stack.append((neighbor, distance + 1))  # Enqueue
 
-    return -1  # If no path found
+    return -1, []  # If no path found
 
 def main():
     #-| Read Command-Line Arguments ------------------------------------------------|
@@ -75,15 +94,16 @@ def main():
 
     #-| Validate Nodes and Execute Algorithm --------------------------------------|
     distance = None
+    path = []
     elapsed_time_ms = 0
 
     if alg == "bfs":
         start_time = time.perf_counter() 
-        distance = bfs(graph, src, tgt)
+        distance, path = bfs(graph, src, tgt)
         elapsed_time_ms = (time.perf_counter() - start_time) * 1000  
     elif alg == "dfs":
         start_time = time.perf_counter() 
-        distance = dfs(graph, src, tgt)
+        distance, path = dfs(graph, src, tgt)
         elapsed_time_ms = (time.perf_counter() - start_time) * 1000  
     else:
         print("Error: Invalid algorithm choice. Please choose BFS or DFS.")
@@ -92,9 +112,10 @@ def main():
     #-| Display Result -----------------------------------------------------------|
     if distance != -1:
         print(
-            f"\n\033[1m\n\033[92mA path exists between {src} and {tgt} ({alg.upper()}).\033[0m\n"
-            f"\n\033[1mTime taken:\033[0m {elapsed_time_ms:.4f} ms"
-            f"\n\033[1mDistance:\033[0m {distance}\n"
+            f"\n\033[1m\n\033[92mA path exists between {src} and {tgt} ({alg.upper()}).\033[0m"
+            f"\n\033[1mTime taken:\033[0m {elapsed_time_ms:.4f} ms\n"
+            f"\033[1mDistance:\033[0m {distance} nodes\n"
+            f"\033[1mPath:\033[0m {' → '.join([node.split('_')[-1] for node in path])}\n"
         )
     else:
         print(f"\033[91mNo path exists between {src} and {tgt}.\033[0m")

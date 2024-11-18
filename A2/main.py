@@ -73,7 +73,7 @@ def main():
             print(f"Unsupported file format. Boo womp.")
             return
 
-    #-| Validate Nodes and Execute alg ---------------------------------------|
+    #-| Validate Nodes and Execute Algorithm --------------------------------------|
     distance = None
     elapsed_time_ms = 0
 
@@ -89,11 +89,12 @@ def main():
         print("Error: Invalid algorithm choice. Please choose BFS or DFS.")
         return
 
-    #-| Display Result ------------------------------------------------------------|
+    #-| Display Result -----------------------------------------------------------|
     if distance != -1:
         print(
-            f"\n\033[92mA path exists between {src} and {tgt} using {alg.upper()}.\033[0m"
-            f"\n\033[1mTime taken:\033[0m {elapsed_time_ms:.4f} ms. \033[1mDistance:\033[0m {distance}\n"
+            f"\n\033[1m\n\033[92mA path exists between {src} and {tgt} ({alg.upper()}).\033[0m\n"
+            f"\n\033[1mTime taken:\033[0m {elapsed_time_ms:.4f} ms"
+            f"\n\033[1mDistance:\033[0m {distance}\n"
         )
     else:
         print(f"\033[91mNo path exists between {src} and {tgt}.\033[0m")

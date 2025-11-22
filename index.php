@@ -1,11 +1,11 @@
 <?php
 // -------------------------------------------------------------
-// Database connection settings - CHANGE THESE for your setup
+// Database connection settings
 // -------------------------------------------------------------
-$dbHost = "localhost";        // or the host OIT gives you
-$dbUser = "your_db_username";
-$dbPass = "your_db_password";
-$dbName = "your_db_name";
+$dbHost = "localhost";
+$dbUser = "db_username";
+$dbPass = "db_password";
+$dbName = "db_name";
 
 // -------------------------------------------------------------
 // Initialize variables for use in the HTML
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $queryResult = $mysqli->query($sql);
 
             if ($queryResult === false) {
-                // Incorrect SQL → show error message
+                // Incorrect SQL â†’ show error message
                 $error = "SQL error: " . htmlspecialchars($mysqli->error);
             } else {
                 // If the result is a result set (e.g., SELECT), it will be mysqli_result
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bookstore DB Interface – YOUR NAME HERE</title>
+    <title>Bookstore DB Interface â€“ Sean Bevensee</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -160,7 +160,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
     <h1>Online Bookstore Database Interface</h1>
-    <div class="subtitle">Created by YOUR NAME HERE</div>
+    <div class="subtitle">Sean Bevensee, smb0207@auburn.edu</div>
+    <div class="subtitle">COMP-5120 Term Project Submission</div>
 
     <form method="post" action="">
         <label for="sql"><strong>Enter an SQL statement:</strong></label><br>

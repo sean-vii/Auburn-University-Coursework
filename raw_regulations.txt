@@ -1,0 +1,4 @@
+Hazard analysis shall include:
+(a) biological hazards
+(b) chemical hazards
+(c) physical hazards

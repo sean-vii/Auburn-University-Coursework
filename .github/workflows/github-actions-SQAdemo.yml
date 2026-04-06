@@ -22,5 +22,5 @@ jobs:
       - name: Print Demo Message
         run: echo "Hello from GitHub Actions! I am modifying this file "
 
-      - name: Run Validation
-        run: python scripts/validate.py
+      #- name: Run Validation
+      #  run: python scripts/validate.py

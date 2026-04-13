@@ -1,0 +1,44 @@
+2026-04-13 14:07:11,782:APPLICATION START - w7.py forensic logging session initiated
+2026-04-13 14:07:11,791:readData - Loaded Iris dataset: shape=(150, 4), features=4, targets=3
+2026-04-13 14:07:11,804:readData - DataFrame created: rows=150, NaN count=0
+2026-04-13 14:07:11,807:makePrediction - KNN model fitted: training_samples=150, n_neighbors=6, n_features=4
+2026-04-13 14:07:11,808:makePrediction - Prediction input: samples=2, feature_mins=[3.4, 1.0, 1.1, 1.8], feature_maxs=[5.9, 2.0, 5.1, 4.8]
+2026-04-13 14:07:11,810:makePrediction - Prediction results: [1, 1]
+2026-04-13 14:07:11,815:doRegression - Data split: train_size=422, test_size=20, total=442
+2026-04-13 14:07:11,816:doRegression - Model fitted: coefficients=[938.2378612513521], intercept=152.9189
+2026-04-13 14:07:11,816:doRegression - Predictions: min=83.39, max=236.09, mean=143.56
+2026-04-13 14:07:11,818:k_fold_cv_mlp - Fold 1: train_size=120, test_size=30, train_label_distribution={0: 20, 1: 50, 2: 50}
+2026-04-13 14:07:12,587:k_fold_cv_mlp - Fold 2: train_size=120, test_size=30, train_label_distribution={0: 30, 1: 40, 2: 50}
+2026-04-13 14:07:13,332:k_fold_cv_mlp - Fold 3: train_size=120, test_size=30, train_label_distribution={0: 50, 1: 20, 2: 50}
+2026-04-13 14:07:13,740:k_fold_cv_mlp - Fold 4: train_size=120, test_size=30, train_label_distribution={0: 50, 1: 40, 2: 30}
+2026-04-13 14:07:14,450:k_fold_cv_mlp - Fold 5: train_size=120, test_size=30, train_label_distribution={0: 50, 1: 50, 2: 20}
+2026-04-13 14:07:15,695:k_fold_cv_mlp - All folds complete: scores=[1.0, 1.0, 0.8333333333333334, 0.9, 0.8], mean_accuracy=0.9067, std_dev=0.0827
+2026-04-13 14:07:17,836:doDeepLearning - MNIST loaded: train_shape=(60000, 28, 28), test_shape=(10000, 28, 28), labels=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], label_distribution=[5923, 6742, 5958, 6131, 5842, 5421, 5918, 6265, 5851, 5949]
+2026-04-13 14:07:18,297:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-04-13 14:07:33,525:doDeepLearning - Training complete: final_accuracy=0.9642, final_loss=0.1295, epochs=3
+2026-04-13 14:07:33,649:doDeepLearning - Predictions: predicted=[7, 2, 1, 0, 4], actual=[7, 2, 1, 0, 4], match=[True, True, True, True, True]
+2026-04-13 14:11:59,320:APPLICATION START - w7.py forensic logging session initiated
+2026-04-13 14:11:59,324:readData - Loaded Iris dataset: shape=(150, 4), features=4, targets=3
+2026-04-13 14:11:59,339:readData - DataFrame created: rows=150, NaN count=0
+2026-04-13 14:11:59,342:makePrediction - KNN model fitted: training_samples=150, n_neighbors=6, n_features=4
+2026-04-13 14:11:59,342:makePrediction - Prediction input: samples=2, feature_mins=[3.4, 1.0, 1.1, 1.8], feature_maxs=[5.9, 2.0, 5.1, 4.8]
+2026-04-13 14:11:59,345:makePrediction - Prediction results: [1, 1]
+2026-04-13 14:11:59,351:doRegression - Data split: train_size=422, test_size=20, total=442
+2026-04-13 14:11:59,353:doRegression - Model fitted: coefficients=[938.2378612513521], intercept=152.9189
+2026-04-13 14:11:59,353:doRegression - Predictions: min=83.39, max=236.09, mean=143.56
+2026-04-13 14:13:12,734:APPLICATION START - w7.py forensic logging session initiated
+2026-04-13 14:13:12,736:readData - Loaded Iris dataset: shape=(150, 4), features=4, targets=3
+2026-04-13 14:13:12,745:readData - DataFrame created: rows=150, NaN count=0
+2026-04-13 14:13:12,747:makePrediction - KNN model fitted: training_samples=150, n_neighbors=6, n_features=4
+2026-04-13 14:13:12,747:makePrediction - Prediction input: samples=2, feature_mins=[3.4, 1.0, 1.1, 1.8], feature_maxs=[5.9, 2.0, 5.1, 4.8]
+2026-04-13 14:13:12,750:makePrediction - Prediction results: [1, 1]
+2026-04-13 14:13:12,754:doRegression - Data split: train_size=422, test_size=20, total=442
+2026-04-13 14:13:12,755:doRegression - Model fitted: coefficients=[938.2378612513521], intercept=152.9189
+2026-04-13 14:13:12,755:doRegression - Predictions: min=83.39, max=236.09, mean=143.56
+2026-04-13 14:13:15,350:k_fold_cv_mlp - Fold 1: train_size=75, test_size=75, train_label_distribution={1: 25, 2: 50}
+2026-04-13 14:13:16,118:k_fold_cv_mlp - Fold 2: train_size=75, test_size=75, train_label_distribution={0: 50, 1: 25}
+2026-04-13 14:13:16,418:k_fold_cv_mlp - All folds complete: scores=[0.29333333333333333, 0.3333333333333333], mean_accuracy=0.3133, std_dev=0.0200
+2026-04-13 14:13:16,657:doDeepLearning - MNIST loaded: train_shape=(60000, 28, 28), test_shape=(10000, 28, 28), labels=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], label_distribution=[5923, 6742, 5958, 6131, 5842, 5421, 5918, 6265, 5851, 5949]
+2026-04-13 14:13:17,157:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-04-13 14:13:36,188:doDeepLearning - Training complete: final_accuracy=0.9663, final_loss=0.1191, epochs=3
+2026-04-13 14:13:36,320:doDeepLearning - Predictions: predicted=[7, 2, 1, 0, 4], actual=[7, 2, 1, 0, 4], match=[True, True, True, True, True]
